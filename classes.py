@@ -1,29 +1,28 @@
 import random
 
-# 1. Classe Carta: O molde de uma única carta
+# Classe Carta
 class Carta:
     def __init__(self, valor, naipe):
         self.valor = valor
         self.naipe = naipe
 
-    # Esta função define como a carta aparece escrita (ex: "Ás de Espadas")
+    # Representação da carta como string
     def __repr__(self):
         return f"{self.valor} de {self.naipe}"
 
-# 2. Classe Baralho: O conjunto de cartas e ações (embaralhar, dar cartas)
+# Classe Baralho
 class Baralho:
     def __init__(self):
         self.cartas = []
         self.montar_baralho()
 
     def montar_baralho(self):
-        # Listas com os tipos de naipes e valores possíveis
+        # Naipes e valores do Truco
         naipes = ['Copas', 'Ouros', 'Espadas', 'Paus']
         valores = ['4', '5', '6', '7', 'Q', 'J', 'K', 'A', '2', '3'] 
-        # Nota: Usei a ordem de força do Truco como exemplo base, mas podemos ajustar.
         
         self.cartas = []
-        # Cria uma carta para cada combinação de valor e naipe
+        # Gera todas as combinações
         for naipe in naipes:
             for valor in valores:
                 nova_carta = Carta(valor, naipe)
@@ -35,24 +34,20 @@ class Baralho:
 
     def puxar_carta(self):
         if len(self.cartas) > 0:
-            return self.cartas.pop() # Tira a última carta do monte
+            return self.cartas.pop()
         else:
             return None
 
-# --- TESTANDO O CÓDIGO (Simulação) ---
+if __name__ == "__main__":
+    # Teste das classes
+    meu_baralho = Baralho()
+    print(f"Total de cartas iniciais: {len(meu_baralho.cartas)}")
 
-# Criamos um novo baralho
-meu_baralho = Baralho()
+    meu_baralho.embaralhar()
 
-print(f"Total de cartas iniciais: {len(meu_baralho.cartas)}")
+    minha_mao = []
+    for _ in range(3):
+        carta_recebida = meu_baralho.puxar_carta()
+        minha_mao.append(carta_recebida)
 
-# Embaralhamos
-meu_baralho.embaralhar()
-
-# Simulamos uma mão de jogador (recebendo 3 cartas)
-minha_mao = []
-for _ in range(3):
-    carta_recebida = meu_baralho.puxar_carta()
-    minha_mao.append(carta_recebida)
-
-print(f"A minha mão é: {minha_mao}")
+    print(f"A minha mão é: {minha_mao}")

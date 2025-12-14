@@ -1,0 +1,35 @@
+Tabela: JOGADORES
+
+id (Número único)
+
+nome (Ex: "Maria")
+
+nivel (Ex: "Iniciante", "Mestra")
+
+data_criacao
+_______________________________________________________
+Tabela: PARTIDAS
+
+id
+
+id_jogador (Quem jogou?)
+
+modo_jogo (Truco, Sueca, etc.)
+
+resultado (Vitória/Derrota)
+
+duracao (Tempo)
+
+data_partida
+________________________________________________________
+Tabela: MOVIMENTOS_IA (Para aprender a jogar)
+
+id
+
+cartas_na_mao (O que a IA tinha)
+
+carta_jogada (O que ela escolheu)
+
+resultado_jogada (Foi bom ou ruim?)
+
+Nota: É esta tabela que vamos usar para treinar a IA no futuro!

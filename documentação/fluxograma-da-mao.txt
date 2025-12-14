@@ -1,0 +1,19 @@
+graph TD
+    A[Início da Mão] --> B{Alguém tem 12 pontos?}
+    B -- Sim --> C[Fim de Jogo]
+    B -- Não --> D[Embaralhar e Dar 3 Cartas]
+    
+    D --> E[Loop: Jogar até 3 Vazas]
+    E --> F[Jogador e CPU jogam carta]
+    F --> G{Quem tem carta maior?}
+    
+    G -- Jogador --> H[Ponto para Jogador]
+    G -- CPU --> I[Ponto para CPU]
+    
+    H --> J{Alguém ganhou 2 vazas?}
+    I --> J
+    
+    J -- Sim --> K[Vencedor ganha pontos da Mão]
+    J -- Não --> E
+    
+    K --> B

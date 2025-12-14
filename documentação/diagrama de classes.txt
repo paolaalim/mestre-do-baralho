@@ -1,0 +1,27 @@
+classDiagram
+    class Carta {
+        +String valor
+        +String naipe
+        +repr()
+    }
+
+    class Baralho {
+        +List cartas
+        +montar_baralho()
+        +embaralhar()
+        +puxar_carta()
+    }
+
+    class JogoTruco {
+        +Baralho baralho
+        +Int pontos_jogador
+        +Int pontos_cpu
+        +Dict tabela_forca
+        +descobrir_manilha()
+        +calcular_forca()
+        +jogar_mao()
+    }
+
+    %% Relacionamentos
+    Baralho *-- Carta : Contém várias
+    JogoTruco --> Baralho : Usa um
